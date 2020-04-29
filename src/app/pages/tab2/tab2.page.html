@@ -1,9 +1,18 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Encabezados
     </ion-title>
   </ion-toolbar>
+
+  <ion-segment value="Negocios" scrollable mode="md" color="primary">
+    <ion-segment-button mode="md"
+                        *ngFor="let categoria of categorias"
+                        value="{{categoria}}">
+      <ion-label text-capitalize>{{ categoria }}</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
 </ion-header>
 
 <ion-content [fullscreen]="true">
