@@ -1,17 +1,29 @@
-<ion-card mode="md">
-  <ion-card-header>
-    <ion-card-subtitle>
-      <!-- <span>{{ i + 1 }}</span> -->
-      <span class="page">{{ noticia.source.name }}</span>
-    </ion-card-subtitle>
-    <ion-card-title>{{ noticia.title }}</ion-card-title>
-  </ion-card-header>
-  <ion-img *ngIf="noticia.urlToImage"
-           [src]="noticia.urlToImage">
-  </ion-img>
-  <ion-card-content *ngIf="noticia.description">
-    <p>
-      {{ noticia.description }}
-    </p>
-  </ion-card-content>
-</ion-card>
+<div *ngIf="noticia.source.id !== 'google-news'">
+  <ion-card color="dark" mode="md">
+    <ion-card-header>
+      <ion-card-subtitle>
+        <!-- <span>{{ i + 1 }}</span> -->
+        <span class="page">{{ noticia.source.name }}</span>
+
+        <div class="noticia-more">
+          <ion-button fill="clear"
+                      (click)="lanzarMenu()">
+            <ion-icon slot="icon-only"
+                      name="ellipsis-vertical"></ion-icon>
+          </ion-button>
+        </div>
+
+      </ion-card-subtitle>
+      <ion-card-title (click)="abrirNoticia()" >{{ noticia.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-img *ngIf="noticia.urlToImage"
+             (click)="abrirNoticia()"
+             [src]="noticia.urlToImage">
+    </ion-img>
+    <ion-card-content *ngIf="noticia.description">
+      <p>
+        {{ noticia.description }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</div>
